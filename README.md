@@ -1,2 +1,2 @@
-# ChampzSkripts
-The Skripts for The Champz Tournament
+# ChampzTournaments
+The Github Repository for the Champz Minecraft Tournaments!
