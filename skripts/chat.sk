@@ -1,0 +1,2 @@
+on chat:
+    set the chat format to "%player%: %message%"
