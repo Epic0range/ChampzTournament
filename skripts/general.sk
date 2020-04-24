@@ -4,3 +4,7 @@ command /pvp <boolean> <world>:
             disable pvp in arg-2
         else if arg-1 is true:
             enable pvp in arg-2
+
+command /glow:
+    trigger:
+        set glowing of player to true
