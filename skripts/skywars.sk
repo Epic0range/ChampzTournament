@@ -1,0 +1,13 @@
+command /skywarskits:
+    trigger:
+        open virtual chest inventory with size 1 named "Kits" to all players
+        format gui slot 0 of player with iron sword named "&7Basic Kit" to run:
+            give iron sword to player
+            give iron pickaxe to player
+            give iron axe to player
+            give iron shovel to player
+            equip player with iron helmet
+            equip player with iron chestplate
+            equip player with iron leggings
+            equip player with iron boots
+            close player's inventory

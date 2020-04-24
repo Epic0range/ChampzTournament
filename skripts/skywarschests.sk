@@ -1,0 +1,152 @@
+on load:
+    clear {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 16 oak planks to {chestitemsspawn::*}
+    add 32 oak planks to {chestitemsspawn::*}
+    add 32 oak planks to {chestitemsspawn::*}
+    add 32 oak planks to {chestitemsspawn::*}
+    add 32 oak planks to {chestitemsspawn::*}
+    add 32 oak planks to {chestitemsspawn::*}
+    add 1 diamond sword to {chestitemsspawn::*}
+    add 1 iron chestplate to {chestitemsspawn::*}
+    add 1 iron sword to {chestitemsspawn::*}
+    add 1 iron sword to {chestitemsspawn::*}
+    add 1 iron boots to {chestitemsspawn::*}
+    add 1 iron boots to {chestitemsspawn::*}
+    add 1 iron leggings to {chestitemsspawn::*}
+    add 1 iron helmet to {chestitemsspawn::*}
+    add 1 iron helmet to {chestitemsspawn::*}
+    add 1 diamond boots to {chestitemsspawn::*}
+    add 1 diamond helmet to {chestitemsspawn::*}
+    add 12 xp bottle to {chestitemsspawn::*}
+    add 8 xp bottle to {chestitemsspawn::*}
+    add 1 enchanted book of sharpness 1 to {chestitemsspawn::*}
+    add 12 blue terracotta to {chestitemsspawn::*}
+    add 12 green terracotta to {chestitemsspawn::*}
+    add 12 blue terracotta to {chestitemsspawn::*}
+    add 12 green terracotta to {chestitemsspawn::*}
+    add 12 red terracotta to {chestitemsspawn::*}
+    add 12 red terracotta to {chestitemsspawn::*}
+    add 1 golden apple to {chestitemsspawn::*}
+    add 1 diamond pickaxe to {chestitemsspawn::*}
+    add 1 fishing rod to {chestitemsspawn::*}
+    add 1 iron pickaxe to {chestitemsspawn::*}
+    add 1 iron pickaxe to {chestitemsspawn::*}
+    add 8 snowballs to {chestitemsspawn::*}
+    add 8 snowballs to {chestitemsspawn::*}
+    add 16 snowballs to {chestitemsspawn::*}
+    add 8 eggs to {chestitemsspawn::*}
+    add 8 eggs to {chestitemsspawn::*}
+    add 16 eggs to {chestitemsspawn::*}
+
+on load:
+    clear {chestitemsmid::*}
+    add 1 enchanted book of sharpness 2 to {chestitemsmid::*}
+    add 1 ender pearl to {chestitemsmid::*}
+    add 1 diamond sword of fire aspect 1 to {chestitemsmid::*}
+    add 1 enchanted book of fire aspect 1 to {chestitemsmid::*}
+    add 1 diamond leggings of protection 1 to {chestitemsmid::*}
+    add 1 iron chestplate of protection 1 to {chestitemsmid::*}
+    add 1 iron chestplate of protection 1 to {chestitemsmid::*}
+    add 1 diamond boots of protection 1 to {chestitemsmid::*}
+    add 1 diamond helmet of protection 1 to {chestitemsmid::*}
+    add 1 diamond chestplate to {chestitemsmid::*}
+    add 1 diamond leggings to {chestitemsmid::*}
+    add 1 diamond boots to {chestitemsmid::*}
+    add 1 diamond helmet to {chestitemsmid::*}
+    add 16 snowballs to {chestitemsmid::*}
+    add 16 eggs to {chestitemsmid::*}
+    add 16 eggs to {chestitemsmid::*}
+    add 16 snowballs to {chestitemsmid::*}
+    add 1 stick of knockback 2 to {chestitemsmid::*}
+    add 10 arrows to {chestitemsmid::*}
+    add 8 arrows to {chestitemsmid::*}
+    add 1 bow to {chestitemsmid::*}
+    add 1 bow of power 1 to {chestitemsmid::*}
+    add 1 golden apple to {chestitemsmid::*}
+    add 1 golden apple to {chestitemsmid::*}
+    add 16 xp bottle to {chestitemsmid::*}
+    add 12 black terracotta to {chestitemsmid::*}
+    add 12 black terracotta to {chestitemsmid::*}
+    add 1 leather chestplate of fire protection 4 to {chestitemsmid::*}
+    add 12 arrows to {chestitemsmid::*}
+    add 1 potion of strength to {chestitemsmid::*}
+    add 1 potion of healing to {chestitemsmid::*}
+    add 1 potion of regeneration to {chestitemsmid::*}
+
+command /skywarschest <text> [integer]:
+    trigger: 
+        if arg-1 is "spawn":
+            wait 2 ticks
+            set {spawnchestlocation} to target block
+            set block at {spawnchestlocation} to chest
+            wait 5 ticks
+            set {spawnchestblock} to block at {spawnchestlocation}
+            loop (random integer between 3 and 8) times:
+                set {_item} to a random element of {chestitemsspawn::*}
+                while {spawnchestblock}'s inventory has {_item}:
+                    set {_item} to a random element of {chestitemsspawn::*}
+                set {_slot} to random integer between 0 and 26
+                while slot {_slot} of {spawnchestblock}'s inventory is not empty:
+                    set {_slot} to random integer between 0 and 26
+                set slot {_slot} of {spawnchestblock}'s inventory to {_item}
+        else if arg-1 is "mid":
+            wait 2 ticks
+            set {midchestlocation} to target block
+            set block at {midchestlocation} to chest
+            wait 5 ticks
+            set {midchestblock} to block at {midchestlocation}
+            loop (random integer between 4 and 6) times:
+                set {_item} to a random element of {chestitemsmid::*}
+                while {midchestblock}'s inventory has {_item}:
+                    set {_item} to a random element of {chestitemsmid::*}
+                set {_slot} to random integer between 0 and 26
+                while slot {_slot} of {midchestblock}'s inventory is not empty:
+                    set {_slot} to random integer between 0 and 26
+                set slot {_slot} of {midchestblock}'s inventory to {_item}
+
+command /skywarschestconsole <text> <integer> <integer> <integer> [<integer>]:
+    trigger: 
+        if arg-1 is "spawn":
+            wait 2 ticks
+            set {spawnchestlocation} to location(arg-2, arg-3, arg-4, world "skywars")
+            set block at {spawnchestlocation} to chest
+            wait 5 ticks
+            set {spawnchestblock} to block at {spawnchestlocation}
+            loop (random integer between 3 and 8) times:
+                set {_item} to a random element of {chestitemsspawn::*}
+                while {spawnchestblock}'s inventory has {_item}:
+                    set {_item} to a random element of {chestitemsspawn::*}
+                set {_slot} to random integer between 0 and 26
+                while slot {_slot} of {spawnchestblock}'s inventory is not empty:
+                    set {_slot} to random integer between 0 and 26
+                set slot {_slot} of {spawnchestblock}'s inventory to {_item}
+                clear {_slot}
+                clear {_item}
+                clear {spawnchestlocation}
+
+        else if arg-1 is "mid":
+            wait 2 ticks
+            set {midchestlocation} to location(arg-2, arg-3, arg-4, world "skywars")
+            set block at {midchestlocation} to chest
+            wait 5 ticks
+            set {midchestblock} to block at {midchestlocation}
+            loop (random integer between 4 and 6) times:
+                set {_item} to a random element of {chestitemsmid::*}
+                while {midchestblock}'s inventory has {_item}:
+                    set {_item} to a random element of {chestitemsmid::*}
+                set {_slot} to random integer between 0 and 26
+                while slot {_slot} of {midchestblock}'s inventory is not empty:
+                    set {_slot} to random integer between 0 and 26
+                set slot {_slot} of {midchestblock}'s inventory to {_item}
+                clear {_slot}
+                clear {_item}
+                clear {spawnchestlocation}

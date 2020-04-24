@@ -1,0 +1,6 @@
+command /pvp <boolean> <world>:
+    trigger:
+        if arg-1 is false:
+            disable pvp in arg-2
+        else if arg-1 is true:
+            enable pvp in arg-2

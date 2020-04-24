@@ -1,0 +1,49 @@
+on projectile hit:
+    if {spleefgame} is true:
+        if projectile is snowball:
+            wait 1 tick
+            set {_location} to location of the projectile
+            if block at {_location} is snow block:
+                set block at {_location} to air
+            clear {_location}
+        stop
+
+on death of player:
+    if {spleefgame} is true:
+        cancel event
+        set the player's gamemode to spectator
+    stop
+
+on break of oak log or oak bark:
+    if {spleefgame} is true:
+        cancel event
+        send "You are not allowed to break this"
+    stop
+
+on break of snow block:
+    if {spleefgame} is true:
+        cancel event
+        set event-block to air
+        give 4 snowballs to player
+
+command /spleefgame <boolean>:
+    trigger:
+        if arg-1 is false:
+            set {spleefgame} to false
+        else if arg-1 is true:
+            set {spleefgame} to true
+        stop
+
+command /spleef <text>:
+    trigger:
+        if arg-1 is "start":
+            set block at location(-69, 4, 70, world "games") to redstone block
+        else if arg-1 is "end":
+            set block at location(-64, 4, 98, world "games") to redstone block
+
+command /spleefstop <text>:
+    trigger:
+        if arg-1 is "start":
+            set block at location(-69, 4, 70, world "games") to air
+        else if arg-1 is "end":
+            set block at location(-64 , 4, 98, world "games") to air
