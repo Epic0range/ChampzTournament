@@ -1,14 +1,14 @@
 on chat:
-    set the chat format to "&e%player%&8: &1%message%"
+    set the chat format to "&e%player%&8: &f%message%"
     if player has permission "is.owner":
         cancel event
-        broadcast "&6[&4Owner&6] &e%player%&8: &1%message%"
+        broadcast "&6[&4Owner&6] &e%player%&8: &f%message%"
         set tab list name of player to "&6[&4Owner&6] &e%player%"
     else if player has permission "is.admin":
         cancel event
-        broadcast "&6[&cAdmin&6] &e%player%&8: &1%message%"
+        broadcast "&6[&cAdmin&6] &e%player%&8: &f%message%"
         set tab list name of player to "&6[&cAdmin&6] &e%player%"
     else if player has permission "is.builder":
         cancel event
-        broadcast "&6[&9Builder&6] &e%player%&8: &1%message%"
+        broadcast "&6[&9Builder&6] &e%player%&8: &f%message%"
         set tab list name of player to "&6[&9Builder&6] &e%player%"
